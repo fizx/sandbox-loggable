@@ -15,6 +15,7 @@ class TestLoggable < Test::Unit::TestCase
     l.expects(:debug).with("debug").times(2)
     
     assert_equal Loggable.default, self.class.logger
+    assert_kind_of Logger, Loggable.default
     
     self.class.logger = l
     assert_equal l, self.class.logger

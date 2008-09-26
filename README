@@ -1,0 +1,22 @@
+Simple logging mix-in for Ruby.
+
+Features:
+
+1. Global logger, overrideable at the class level.  
+2. Logging methods mixed into your classes.
+
+		>> require "loggable"
+		=> true
+		>> class Foo
+		>> include Loggable
+		>> end
+		=> Foo
+		>> Foo.logger
+		=> #<Logger:0x5ce874 @form... >
+		>> f = Foo.new
+		=> #<Foo:0x5c5788>
+		>> f.info "info goes here"
+		I, [2008-09-26T16:41:20.780745 #14792]  INFO -- : info goes here
+		=> true
+		>> Loggable.default
+		=> #<Logger:0x5ce874 @form... >

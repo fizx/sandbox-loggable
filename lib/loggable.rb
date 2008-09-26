@@ -1,3 +1,4 @@
+require "logger"
 module Loggable
   module ClassMethods
     def logger
@@ -14,7 +15,7 @@ module Loggable
   
   module LoggableMethods
     def default
-      @default_logger ||= STDOUT
+      @default_logger ||= Logger.new(STDOUT)
     end
     def default=(l)
       @default_loffer = l
