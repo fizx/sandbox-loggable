@@ -1,4 +1,6 @@
+0.2.0
+  - added setting levels via ENV
 0.1.1
-- Fixed default logger bug
+  - Fixed default logger bug
 0.1.0
-- Initial release
+  - Initial release

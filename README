@@ -4,6 +4,7 @@ Features:
 
 1. Global logger, overrideable at the class level.  
 2. Logging methods mixed into your classes.
+3. Set global logger level with ENV["LOG_LEVEL"]
 
 		>> require "loggable"
 		=> true

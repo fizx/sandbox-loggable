@@ -32,4 +32,15 @@ class TestLoggable < Test::Unit::TestCase
     l.info "info"
     l.debug "debug"
   end
+  
+  def test_env
+    Loggable.default = nil
+    ENV["LOG_LEVEL"] = "info"
+    assert_equal "info", Loggable.default.level
+    
+    Loggable.default = nil
+    ENV["LOG_LEVEL"] = "debug"
+    assert_equal "debug", Loggable.default.level
+    
+  end
 end

@@ -1,5 +1,5 @@
 require "logger"
-module Loggable
+  module Loggable
   module ClassMethods
     def logger
       @logger || Loggable.default
@@ -15,10 +15,13 @@ module Loggable
   
   module LoggableMethods
     def default
+      return @default_logger if @default_logger
       @default_logger ||= Logger.new(STDOUT)
+      @default_logger.level = ENV["LOG_LEVEL"] if ENV["LOG_LEVEL"]
+      @default_logger
     end
     def default=(l)
-      @default_loffer = l
+      @default_logger = l
     end
   end
   
