@@ -10,5 +10,5 @@ Gem::Specification.new do |s|
   s.authors  = ["Kyle Maxwell"]
   s.files    = ["README", "lib/loggable.rb", "test/test_loggable.rb"]
   s.rdoc_options = ["--main", "README"]
-  s.extra_rdoc_files = ["README"]
+  s.extra_rdoc_files = ["README"] 
 end
