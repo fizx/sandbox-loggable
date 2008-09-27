@@ -26,7 +26,7 @@ require "logger"
   end
   
   def l
-    self.class.logger
+    respond_to?(:logger) ? logger : self.class.logger
   end
   
   def fatal(*a, &b)
@@ -51,6 +51,7 @@ require "logger"
 
   def self.included(klass)
     klass.extend(ClassMethods)
+    klass.extend(self)
   end
   
   extend(LoggableMethods)

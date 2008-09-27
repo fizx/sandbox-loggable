@@ -6,6 +6,10 @@ require File.dirname(__FILE__) + "/../lib/loggable"
 class TestLoggable < Test::Unit::TestCase
   include Loggable
   
+  def setup
+    TestLoggable.logger = nil
+  end
+  
   def test_calls
     l = mock()
     l.expects(:fatal).with("fatal").times(2)
@@ -42,5 +46,9 @@ class TestLoggable < Test::Unit::TestCase
     ENV["LOG_LEVEL"] = "debug"
     assert_equal "debug", Loggable.default.level
     
+  end
+  
+  def test_class_methods
+    TestLoggable.info "hi"
   end
 end
