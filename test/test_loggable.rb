@@ -40,12 +40,11 @@ class TestLoggable < Test::Unit::TestCase
   def test_env
     Loggable.default = nil
     ENV["LOG_LEVEL"] = "info"
-    assert_equal "info", Loggable.default.level
+    assert_equal Logger::INFO, Loggable.default.level
     
     Loggable.default = nil
     ENV["LOG_LEVEL"] = "debug"
-    assert_equal "debug", Loggable.default.level
-    
+    assert_equal Logger::DEBUG, Loggable.default.level
   end
   
   def test_class_methods

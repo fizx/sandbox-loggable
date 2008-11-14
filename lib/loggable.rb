@@ -17,11 +17,19 @@ require "logger"
     def default
       return @default_logger if @default_logger
       @default_logger ||= Logger.new(STDOUT)
-      @default_logger.level = ENV["LOG_LEVEL"] if ENV["LOG_LEVEL"]
+      level = to_log_level(ENV["LOG_LEVEL"])
+      @default_logger.level = level if level
       @default_logger
     end
+    
     def default=(l)
       @default_logger = l
+    end
+    
+    def to_log_level(str)
+      Logger.const_get(str.upcase)      
+    rescue NameError
+      nil
     end
   end
   
